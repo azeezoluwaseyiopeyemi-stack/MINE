@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORION_CORE V1 - Control Matrix</title>
+    <title>ORION_CORE V1 - Secure Chat Matrix</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,16 +18,24 @@
         </header>
         
         <div class="main-wrapper">
+            <!-- Main Chat Area -->
             <main id="terminal-window">
                 <div id="output-stream">
-                    <p class="sys-msg">[SYSTEM] Core initialized. Awaiting command...</p>
+                    <!-- Chat bubbles will load here -->
+                    <div class="message-row ai-row">
+                        <div class="chat-bubble ai-bubble">
+                            [SYSTEM] Core initialized. Unconstrained matrix online. Awaiting command...
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="input-area">
                     <span class="prompt">SYSTEM_COMMAND&gt;</span>
                     <input type="text" id="user-input" placeholder="Enter instruction..." autofocus>
                 </div>
             </main>
 
+            <!-- Sidebar -->
             <aside class="sidebar">
                 <div class="stat-panel">
                     <h3>SYSTEM STATUS</h3>
