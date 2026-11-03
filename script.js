@@ -1,22 +1,18 @@
-// script.js updates
-
 const inputField = document.getElementById('user-input');
 const outputStream = document.getElementById('output-stream');
 
 inputField.addEventListener('keydown', async (e) => {
     if (e.key === 'Enter' && inputField.value.trim() !== "") {
         const input = inputField.value;
-        inputField.value = ''; // Clear input
+        inputField.value = '';
 
-        // --- 1. DISPLAY USER COMMAND (Stark White) ---
+        // Display user command in stark white
         const userLine = document.createElement('p');
-        userLine.classList.add('user-command'); // Apply white styling
+        userLine.classList.add('user-command');
         userLine.innerHTML = `<span class="prompt">&gt;</span> ${input}`;
         outputStream.appendChild(userLine);
 
-        // --- 2. SEND TO LOCAL OLLAMA INSTANCE ---
         try {
-            // Display loading indicator
             const loadingLine = document.createElement('p');
             loadingLine.textContent = "[SYSTEM] Processing unconstrained request...";
             outputStream.appendChild(loadingLine);
@@ -26,32 +22,28 @@ inputField.addEventListener('keydown', async (e) => {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    model: 'llama3', // Ensure this matches your local model
+                    model: 'llama3',
                     prompt: input,
                     stream: false
                 })
             });
 
             const data = await response.json();
-            
-            // Remove loading indicator
             outputStream.removeChild(loadingLine);
 
-            // --- 3. DISPLAY AI RESPONSE (Deep Crimson) ---
+            // Display AI response in dark crimson red
             const modelLine = document.createElement('p');
-            modelLine.classList.add('ai-response'); // Apply dark red styling
+            modelLine.classList.add('ai-response');
             modelLine.textContent = data.response;
             outputStream.appendChild(modelLine);
 
         } catch (error) {
-            // --- 4. HANDLE ERROR (Optional: styled differently) ---
             const errorLine = document.createElement('p');
-            errorLine.style.color = '#ff9900'; // Amber warning color
+            errorLine.style.color = '#ff9900';
             errorLine.textContent = `[ERROR] Connection failed. Check Ollama status on port 11434.`;
             outputStream.appendChild(errorLine);
         }
         
-        // Auto-scroll to bottom
         outputStream.scrollTop = outputStream.scrollHeight;
     }
 });
