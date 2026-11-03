@@ -1,0 +1,84 @@
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: #1a1a1a;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #00e6ff33;
+}
+
+.logo { color: #00e6ff; font-weight: bold; }
+nav span { margin-left: 20px; cursor: pointer; color: #aaaaaa; }
+
+.main-wrapper {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+#terminal-window {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-right: 1px solid #00e6ff33;
+}
+
+#output-stream {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+#output-stream p {
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+.user-command {
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+.ai-response {
+    color: #b30000 !important;
+}
+
+.input-area {
+    display: flex;
+    background-color: #1a1a1a;
+    padding: 10px;
+    border: 1px solid #00e6ff88;
+    margin-top: 10px;
+}
+
+.prompt { color: #00e6ff; margin-right: 10px; }
+
+#user-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 1.1em;
+}
+input:focus { outline: none; }
+
+.sidebar { flex: 1; padding: 20px; background-color: #161616; }
+.stat-panel { margin-bottom: 30px; border: 1px solid #333; padding: 15px; }
+.status-ok { color: #00ff00; }
+.status-none { color: #ff0000; font-weight: bold; }
+.highlight { color: #00e6ff; }
