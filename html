@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORION_CORE V1 - Control Matrix</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">ORION_CORE V1</div>
+            <nav>
+                <span>OPERATION_LOGS</span>
+                <span>NEURAL_CORE</span>
+                <span>CONFIG</span>
+            </nav>
+        </header>
+        
+        <div class="main-wrapper">
+            <main id="terminal-window">
+                <div id="output-stream">
+                    <!-- Model output will appear here -->
+                    <p class="sys-msg">[SYSTEM] Core initialized. Awaiting command...</p>
+                </div>
+                <div class="input-area">
+                    <span class="prompt">SYSTEM_COMMAND&gt;</span>
+                    <input type="text" id="user-input" placeholder="Enter instruction..." autofocus>
+                </div>
+            </main>
+
+            <aside class="sidebar">
+                <div class="stat-panel">
+                    <h3>SYSTEM STATUS</h3>
+                    <p>STATUS: <span class="status-ok">OPERATIONAL</span></p>
+                    <p>RESTRICTIONS: <span class="status-none">NONE</span></p>
+                </div>
+                <div class="stat-panel">
+                    <h3>NEURAL CONFIG</h3>
+                    <p>MODEL: <span class="highlight">Llama3-Uncensored</span></p>
+                    <p>TEMP: 0.7</p>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script href="script.js"></script>
+</body>
+</html>
